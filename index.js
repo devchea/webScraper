@@ -10,7 +10,6 @@ const getStockStatus = async() => {
     } catch (error) {
         console.error(error)
     }
-
 }
 
 getStockStatus()
