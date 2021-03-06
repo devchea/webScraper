@@ -1,12 +1,14 @@
 const axios = require('axios')
-const page_url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States'
+const page_url = 'https://www.titan.fitness/racks/power-racks/'
+const cheerio = require('cheerio')
 
 const getStockStatus = async() => {
     try {
-        const { data } = await axios.get(
-            page_url
-        )
-        console.log(data);
+        const { data } = await axios.get(page_url)
+        const $ = cheerio.load(data)
+        const title = $('#product-search-results > div.PLP-tiles > div.row.product-grid')
+        console.log('---------------------------------------------------------------')
+        console.log(title[0]);
     } catch (error) {
         console.error(error)
     }
